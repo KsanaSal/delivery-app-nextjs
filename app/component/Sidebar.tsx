@@ -2,23 +2,7 @@
 import { useEffect, useState } from "react";
 import ShopCard from "./ShopCard";
 
-const Sidebar = () => {
-    // fetch('/api/shop-list')
-    const [data, setData] = useState([]);
-
-    useEffect(() => {
-        async function fetchData() {
-            try {
-                const response = await fetch("/api/shop-list"); // Поставте свій шлях до вашого обробника
-                const { result } = await response.json();
-                setData(result);
-            } catch (error) {
-                console.error("Помилка при отриманні даних:", error);
-            }
-        }
-
-        fetchData();
-    }, []);
+const Sidebar = ({ data }: { data: any }) => {
     console.log(data);
 
     return (
@@ -29,7 +13,7 @@ const Sidebar = () => {
             <div className="flex flex-col gap-2 w-full px-4">
                 {data.length > 0 &&
                     data.map((el: any) => (
-                        <ShopCard key={el.id} shopName={el.title} />
+                        <ShopCard key={el.id} shopName={el.title} status={ el.isActive} />
                     ))}
             </div>
         </div>

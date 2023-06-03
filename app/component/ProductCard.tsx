@@ -1,17 +1,25 @@
 import Image from "next/image";
 import ButtonProduct from "./ButtonProduct";
 
-const ProductCard = () => {
+const ProductCard = ({ product }: { product: any }) => {
     return (
-        <div className="flex flex-col bg-white border-2 rounded-xl border-sky-black p-3 text-gray-500">
-            {/* <Image src={} alt="" /> */}
+        <div className="flex flex-col items-center justify-between bg-white border-2 rounded-xl border-sky-black p-3 text-gray-500 w-full min-h-[350px] md:w-[450px]">
+            <Image
+                src={product.productImage}
+                alt={product.productName}
+                width={300}
+                height={100}
+                className="h-full mb-4"
+                sizes="100% 100px"
+                
+            />
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-sky-black">
+                {product.productName}
+            </h2>
             <div className="flex flex-row gap-2 md:justify-between items-end">
                 <div className="flex flex-col gap-1">
-                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-sky-black">
-                        Name
-                    </h2>
-                    <p className="text-lg md:text-2xl lg:text-3xl">
-                        Price: <span>123</span>
+                    <p className="text-lg md:text-2xl">
+                        Price: <span>{product.productPrice}</span> UAH
                     </p>
                 </div>
                 <ButtonProduct />

@@ -19,8 +19,7 @@ export default function RootLayout({
         <html lang="en">
             <body className="flex flex-col gap-2">
                 <Header />
-                <main className="flex flex-col md:flex-row grow-full gap-2 md:gap-3 lg:gap-4">
-                    <Sidebar />
+                <main>
                     <div className="grow-full w-full">{children}</div>
                 </main>
             </body>
