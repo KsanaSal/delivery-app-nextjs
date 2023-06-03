@@ -1,11 +1,10 @@
 import Image from "next/image";
-
-import { faker } from "@faker-js/faker";
-// or, if desiring a different locale
-// import { fakerDE as faker } from '@faker-js/faker';
+import ProductCard from "./component/ProductCard";
 
 export default function Home() {
-    const randomName = faker.person.fullName(); // Rowan Nikolaus
-    const randomEmail = faker.internet.email(); // Kassandra.Haley@erich.biz
-    return <div>Page</div>;
+    return (
+        <div className="flex flex-col items-center h-auto content-between w-full border-2 rounded-lg border-sky-medium text-lg md:text-xl lg:text-3xl text-sky-black font-display bg-sky-50 p-4">
+            <ProductCard />
+        </div>
+    );
 }
