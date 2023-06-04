@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import ProductCard from "./component/ProductCard";
-import Sidebar from "./component/Sidebar";
+import ProductCard from "./component/shop/ProductCard";
+import Sidebar from "./component/shop/Sidebar";
 
 export default function Home() {
     const [data, setData] = useState<any[]>([]);
