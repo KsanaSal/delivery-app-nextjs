@@ -20,7 +20,6 @@ const SelectProducts = () => {
                 cardProduct.map((el: any) => (
                     <SelectCard product={el} key={el.productId} />
                 ))}
-            Card product
         </div>
     );
 };

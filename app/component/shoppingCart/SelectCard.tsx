@@ -1,6 +1,9 @@
 import Image from "next/image";
+import { useState } from "react";
 
 const SelectCard = ({ product }: { product: any }) => {
+    const [totalPrice, setTotalPrice] = useState(product.productPrice);
+
     return (
         <div className="flex flex-row items-center justify-between bg-white border-2 rounded-xl border-sky-black p-3 text-gray-500 w-full min-h-[350px]">
             <Image
@@ -16,12 +19,11 @@ const SelectCard = ({ product }: { product: any }) => {
                     {product.productName}
                 </h2>
                 <h3 className="text-base md:text-lg">{product.title}</h3>
-                <p className="text-lg md:text-2xl text-gray-700">
-                    Price:{" "}
-                    <span className="text-sky-black">
-                        {product.productPrice}
-                    </span>{" "}
-                    UAH
+                <p>
+                    Price: <span>{product.productPrice}</span> UAH
+                </p>
+                <p>
+                    Total price: <span>{totalPrice}</span> UAH
                 </p>
                 <input
                     type="number"
@@ -30,6 +32,9 @@ const SelectCard = ({ product }: { product: any }) => {
                     max="50"
                     step="1"
                     defaultValue="1"
+                    onChange={(e: any) =>
+                        setTotalPrice(e.target.value * product.productPrice)
+                    }
                 />
             </div>
         </div>

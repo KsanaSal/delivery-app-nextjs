@@ -37,12 +37,8 @@ const ProductCard = ({ product }: { product: any }) => {
             <div className="flex flex-row gap-2 md:justify-between items-end">
                 <div className="flex flex-col gap-1">
                     <h3 className="text-base md:text-lg">{product.title}</h3>
-                    <p className="text-lg md:text-2xl text-gray-700">
-                        Price:{" "}
-                        <span className="text-sky-black">
-                            {product.productPrice}
-                        </span>{" "}
-                        UAH
+                    <p>
+                        Price: <span>{product.productPrice}</span> UAH
                     </p>
                 </div>
                 <ButtonProduct onClick={() => handleAddToCart(product)} />

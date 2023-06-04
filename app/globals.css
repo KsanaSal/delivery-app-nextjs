@@ -18,4 +18,10 @@
     input {
         @apply p-3 text-base md:text-lg lg:text-2xl mt-2 border-2 rounded-lg border-green-medium w-full;
     }
+    p {
+        @apply text-lg md:text-2xl text-gray-600;
+    }
+    span {
+        @apply text-sky-black;
+    }
 }
