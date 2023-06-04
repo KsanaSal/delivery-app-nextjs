@@ -11,15 +11,19 @@ const ProductCard = ({ product }: { product: any }) => {
                 height={100}
                 className="h-full mb-4"
                 sizes="100% 100px"
-                
             />
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-sky-black">
                 {product.productName}
             </h2>
             <div className="flex flex-row gap-2 md:justify-between items-end">
                 <div className="flex flex-col gap-1">
-                    <p className="text-lg md:text-2xl">
-                        Price: <span>{product.productPrice}</span> UAH
+                    <h3 className="text-base md:text-lg">{product.title}</h3>
+                    <p className="text-lg md:text-2xl text-gray-700">
+                        Price:{" "}
+                        <span className="text-sky-black">
+                            {product.productPrice}
+                        </span>{" "}
+                        UAH
                     </p>
                 </div>
                 <ButtonProduct />
