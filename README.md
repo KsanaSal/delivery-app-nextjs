@@ -1,34 +1,30 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Виконання тестового завдання на стажування React & Node.js від ElifTech IT School
 
-First, run the development server:
+Цей проєкт було розроблено по кейсовому завданню.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Технічні вимоги
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Проєкт розроблений на Next.js.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Вигляд сторінок відповідає макету від ElifTech отриманий в Telegram (Delivery app).
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+SCSS прописано без використанням бібліотеки Tailwind CSS.
 
-## Learn More
+Для автоматичної генерації фейкових даних використовувалось бібліотека faker.
 
-To learn more about Next.js, take a look at the following resources:
+## Процес створення проєкту
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+На першій сторінці в Sidebar відображається картки магазинів.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+При натисканні на картку магазина поряд відображаються картки товарів.
 
-## Deploy on Vercel
+При першій загрузці відображаються усі картки товарів з усіх магазинів які показані в Sidebar.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+На другій сторінці відображається форма для заповнення юзером і вибрані товари їм, а також рахується сума сплати товарів.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+В кожній картці товару вибирається кількість товару і рахується ціна вибраної кількості товару.
+
+
+
