@@ -1,4 +1,4 @@
-const ButtonProduct = ({ onClick }: { onClick: any }) => {
+const ButtonProduct = ({ onClick }: { onClick: () => void }) => {
     return (
         <div>
             <button

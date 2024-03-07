@@ -1,16 +1,15 @@
 import Image from "next/image";
 import ButtonProduct from "./ButtonProduct";
+import { ShopProduct } from "@/app/models/ShopCards";
 
-const ProductCard = ({ product }: { product: any }) => {
-    const handleAddToCart = (prod: any) => {
-        console.log(prod);
+const ProductCard = ({ product }: { product: ShopProduct }) => {
+    const handleAddToCart = () => {
         // Отримати обрані товари з localStorage або створити новий масив
         const selectedProducts = localStorage.getItem("selectedProducts");
         const parsedSelectedProducts = selectedProducts
             ? JSON.parse(selectedProducts)
             : [];
 
-        console.log(parsedSelectedProducts);
         // Додати поточний товар до масиву обраних товарів
         parsedSelectedProducts.push({ ...product, amount: 1 });
 
@@ -41,7 +40,7 @@ const ProductCard = ({ product }: { product: any }) => {
                         Price: <span>{product.productPrice}</span> UAH
                     </p>
                 </div>
-                <ButtonProduct onClick={() => handleAddToCart(product)} />
+                <ButtonProduct onClick={() => handleAddToCart()} />
             </div>
         </div>
     );

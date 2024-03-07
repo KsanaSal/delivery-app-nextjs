@@ -5,7 +5,7 @@ const ShopCard = ({
 }: {
     shopName: string;
     status: boolean;
-    onToggleStatus: any;
+    onToggleStatus: () => void;
 }) => {
     const handleClick = () => {
         onToggleStatus();

@@ -1,8 +1,32 @@
 import Image from "next/image";
-import { useState } from "react";
+import { Product } from "@/app/models/ProductCard";
 
-const SelectCard = ({ product }: { product: any }) => {
-    const [totalPrice, setTotalPrice] = useState(product.productPrice);
+const SelectCard = ({
+    product,
+    updateTotalPrice,
+}: {
+    product: Product;
+    updateTotalPrice: () => void;
+}) => {
+    const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const selectedProducts = localStorage.getItem("selectedProducts");
+        const parsedSelectedProducts = selectedProducts
+            ? JSON.parse(selectedProducts)
+            : [];
+        const updatedProducts = parsedSelectedProducts.map((el: Product) =>
+            el.productId === product.productId
+                ? {
+                      ...el,
+                      amount: e.target.value,
+                  }
+                : el
+        );
+        localStorage.setItem(
+            "selectedProducts",
+            JSON.stringify(updatedProducts)
+        );
+        updateTotalPrice();
+    };
 
     return (
         <div className="flex flex-row items-center justify-between bg-white border-2 rounded-xl border-sky-black p-3 text-gray-500 w-full min-h-[350px]">
@@ -23,18 +47,18 @@ const SelectCard = ({ product }: { product: any }) => {
                     Price: <span>{product.productPrice}</span> UAH
                 </p>
                 <p>
-                    Total price: <span>{totalPrice}</span> UAH
+                    Total price:{" "}
+                    <span>{product.productPrice * product.amount}</span> UAH
                 </p>
                 <input
+                    className="w-20"
                     type="number"
                     name="weight"
                     min="0"
                     max="50"
                     step="1"
-                    defaultValue="1"
-                    onChange={(e: any) =>
-                        setTotalPrice(e.target.value * product.productPrice)
-                    }
+                    defaultValue={product.amount}
+                    onChange={handleQuantityChange}
                 />
             </div>
         </div>

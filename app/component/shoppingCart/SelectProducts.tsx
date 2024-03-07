@@ -1,24 +1,23 @@
 "use client";
-import { useEffect, useState } from "react";
+import { Product } from "@/app/models/ProductCard";
 import SelectCard from "./SelectCard";
 
-const SelectProducts = () => {
-    const [cardProduct, setCardProduct] = useState<any[]>([]);
-
-    useEffect(() => {
-        const selectedProducts = localStorage.getItem("selectedProducts");
-        const parsedSelectedProducts = selectedProducts
-            ? JSON.parse(selectedProducts)
-            : [];
-        setCardProduct(parsedSelectedProducts);
-        console.log(parsedSelectedProducts);
-    }, []);
-
+const SelectProducts = ({
+    updateTotalPrice,
+    cardProducts,
+}: {
+    updateTotalPrice: () => void;
+    cardProducts: Product[];
+}) => {
     return (
         <div className="flex flex-col gap-3 items-center h-auto content-between w-full border-2 rounded-lg border-sky-medium text-lg md:text-xl lg:text-3xl text-sky-black font-display bg-sky-50 py-6 pl-6 pr-20 overflow-y-scroll">
-            {cardProduct.length > 0 &&
-                cardProduct.map((el: any) => (
-                    <SelectCard product={el} key={el.productId} />
+            {cardProducts.length > 0 &&
+                cardProducts.map((el: Product) => (
+                    <SelectCard
+                        product={el}
+                        key={el.productId}
+                        updateTotalPrice={updateTotalPrice}
+                    />
                 ))}
         </div>
     );
